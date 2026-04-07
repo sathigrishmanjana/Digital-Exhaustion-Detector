@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Break Alert</title>
+
+<style>
+/* Fullscreen dark overlay */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Popup container */
+.popup {
+    position: relative;
+    width: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 35px 90px rgba(0,0,0,0.85);
+    background: black;
+}
+
+/* Video styling */
+.popup video {
+    width: 100%;
+    display: block;
+    pointer-events: none;
+}
+
+/* Top message */
+.top-text {
+    position: absolute;
+    top: 16px;
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 3px 8px black;
+    z-index: 2;
+}
+
+/* OK Button */
+.ok-btn {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #00c853;
+    color: rgb(47, 61, 63);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.ok-btn:hover {
+    background-color: #00e676;
+}
+</style>
+</head>
+
+<body>
+
+<div class="popup">
+    <div class="top-text">You need a break</div>
+
+    <video autoplay muted playsinline>
+        <source src="pixel_break_alert.mp4" type="video/mp4">
+    </video>
+
+    <button class="ok-btn" onclick="closePopup()">OK</button>
+</div>
+
+<script>
+window.onload = function() {
+    window.resizeTo(620, 420);
+    window.moveTo((screen.width - 620)/2, (screen.height - 420)/2);
+    window.focus();
+};
+
+function closePopup() {
+    window.close();
+}
+</script>
+
+</body>
+</html>
